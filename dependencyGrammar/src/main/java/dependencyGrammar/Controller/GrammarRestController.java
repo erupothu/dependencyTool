@@ -71,7 +71,7 @@ public class GrammarRestController {
 		String ruleRuery = loadRuletable.getQuery(rule);
 		
 		RulesModel ruletable = loadRuletable.loadParams(rule);
-		ruleService.saveRules(ruletable); //save rule to Database
+		//ruleService.saveRules(ruletable); //save rule to Database
 		
 		} catch (JsonParseException e) {
 			e.printStackTrace();

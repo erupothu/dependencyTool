@@ -12,6 +12,11 @@ public class Node {
 	@JacksonXmlProperty(isAttribute = true)
 	private String label;
 	@JacksonXmlProperty(isAttribute = true)
+	private String nodeMarkerStart;
+	@JacksonXmlProperty(isAttribute = true)
+	private String nodeMarkerEnd;
+	
+	@JacksonXmlProperty(isAttribute = true)
 	private String relationToParent;
 	
 	@JacksonXmlProperty(isAttribute = true)
@@ -32,12 +37,14 @@ public class Node {
 		
 	}
 
-	public Node(String id, String personal, String label, String relationToParent, List<String> tagList, List<String> wordList,
+	public Node(String id, String personal, String label, String nodeMarkerStart, String nodeMarkerEnd, String relationToParent, List<String> tagList, List<String> wordList,
 			List<String> lemmaList, List<String> exWordList, List<String> exLemmaList, List<Node> node) {
 		super();
 		this.id = id;
 		this.personal = personal;
 		this.label = label;
+		this.nodeMarkerStart = nodeMarkerStart;
+		this.nodeMarkerEnd = nodeMarkerEnd;
 		this.relationToParent = relationToParent;
 		this.tagList = tagList.toString().replace(",", "|");
 		this.wordList = wordList.toString().replace(",", "|");
@@ -127,12 +134,31 @@ public class Node {
 		this.node = node;
 	}
 
+	public String getNodeMarkerStart() {
+		return nodeMarkerStart;
+	}
+
+	public void setNodeMarkerStart(String nodeMarkerStart) {
+		this.nodeMarkerStart = nodeMarkerStart;
+	}
+
+	public String getNodeMarkerEnd() {
+		return nodeMarkerEnd;
+	}
+
+	public void setNodeMarkerEnd(String nodeMarkerEnd) {
+		this.nodeMarkerEnd = nodeMarkerEnd;
+	}
+
 	@Override
 	public String toString() {
-		return "Node [id=" + id + ", personal=" + personal + ", label=" + label + ", relationToParent="
-				+ relationToParent + ", tagList=" + tagList + ", wordList=" + wordList + ", lemmaList=" + lemmaList
-				+ ", exWordList=" + exWordList + ", exLemmaList=" + exLemmaList + ", node=" + node + "]";
+		return "Node [id=" + id + ", personal=" + personal + ", label=" + label + ", nodeMarkerStart=" + nodeMarkerStart
+				+ ", nodeMarkerEnd=" + nodeMarkerEnd + ", relationToParent=" + relationToParent + ", tagList=" + tagList
+				+ ", wordList=" + wordList + ", lemmaList=" + lemmaList + ", exWordList=" + exWordList
+				+ ", exLemmaList=" + exLemmaList + ", node=" + node + "]";
 	}
+
+	
 	
 	
 }
